@@ -1,0 +1,50 @@
+.wp-block-staff {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+.wp-block-staff .staff-card {
+	width: 100%;
+	padding: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	margin-bottom: 10px;
+}
+
+.wp-block-staff .staff-card:last-child {
+	margin-bottom: 10px;
+}
+
+@media (min-width: 576px) {
+	.wp-block-staff .staff-card {
+		width: 45%;
+	}
+}
+
+@media (min-width: 1200px) {
+	.wp-block-staff .staff-card {
+		width: 30%;
+	}
+}
+
+.wp-block-staff .staff-card .container {
+	margin: 0px 10px 10px 10px;
+	overflow: hidden;
+	text-align: center;
+}
+
+.wp-block-staff .staff-card .container h4 {
+	margin: 6px 0px;
+}
+
+.wp-block-staff .staff-card .container .education {
+	font-weight: normal;
+	font-style: italic;
+	font-size: smaller;
+	line-height: 1.2em;
+
+}
+
+.wp-block-staff .staff-card .container .contact {
+	font-size: smaller;
+}
