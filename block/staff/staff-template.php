@@ -6,7 +6,8 @@
  * @param   string       $content    The block inner HTML (empty).
  * @param   bool         $is_preview True during AJAX preview.
  * @param   int|string   $post_id    The post ID this block is saved to.
- * @package nsm_sd
+ *
+ * @package Nsm_Staff_Directory
  */
 
 $nsm_sd_id        = 'staff-' . $block['id'];
