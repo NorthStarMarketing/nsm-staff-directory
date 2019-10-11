@@ -16,9 +16,8 @@ This plugin adds a staff directory Custom Post Type and adds a staff block.
 
 
 == Installation ==
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
+1. Upload `nsm-staff-directory` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
 
 == Frequently Asked Questions ==
 
