@@ -1,9 +1,9 @@
 <?php
 /**
- * Registers the staff block.
+ * Registers the Staff block.
  *
- * @package wbl
- * @subpackage blocks
+ * @package Nsm_Staff_Directory
+ * @subpackage block
  */
 
 add_action( 'acf/init', 'nsm_register_staff_block' );

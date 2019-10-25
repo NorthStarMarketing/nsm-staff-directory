@@ -1,15 +1,9 @@
 <?php
 /**
- * Registers the fields for ACF.
+ * Registers the ACF fields for the Staff Block.
  * phpcs:ignoreFile
  *
- * @package wbl
- */
-
- /**
- * Adds the ACF Fields for the Staff Block.
- *
- * @return void
+ * @package Nsm_Staff_Directory
  */
 function nsm_add_staff_field_group() {
 	if( function_exists('acf_add_local_field_group') ):

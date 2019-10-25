@@ -7,13 +7,12 @@
 
 // Actions and Filters.
 add_action( 'init', 'nsm_sd_staff', 0 );
-add_action( 'save_post_staff', 'nsm_sd_set_default_staff_featured_image', 10, 1 );
 add_action( 'save_post_staff', 'nsm_sd_set_staff_name', 10, 2 );
 
 add_filter( 'use_block_editor_for_post_type', 'nsm_sd_disable_gutenberg', 10, 2 );
 
 /**
- * Remove Gutenberg from the Staff Custom Post Type.
+ * Removes Gutenberg from the Staff Custom Post Type.
  *
  * @param boolean $current_status Status to show gutenberg or not.
  * @param string $post_type The Post Type.
@@ -28,7 +27,7 @@ function nsm_sd_disable_gutenberg( $current_status, $post_type ){
 
 
 /**
- * Defines the custom post type.
+ * Defines the Staff Custom Post Type.
  */
 function nsm_sd_staff() {
 	$labels = array(
@@ -79,7 +78,7 @@ function nsm_sd_staff() {
 		'menu_position'       => 5,
 		'menu_icon'           => 'dashicons-groups',
 		'show_in_admin_bar'   => true,
-		'show_in_nav_menus'   => true,
+		'show_in_nav_menus'   => false,
 		'show_in_rest'        => true,
 		'can_export'          => true,
 		'has_archive'         => false,
@@ -90,20 +89,6 @@ function nsm_sd_staff() {
 	);
 
 	register_post_type( 'staff', $args );
-}
-
-/**
- * Add a default staff silhouette if no image is applied.
- *
- * @param int $id The post ID.
- */
-function nsm_sd_set_default_staff_featured_image( $id ) {
-	if ( has_post_thumbnail() ) {
-		return;
-	}
-	$nsm_sd_default_staff_profile = get_field( 'default_staff_profile', 'option' );
-	// Set the default featured image.
-	set_post_thumbnail( $id, $nsm_sd_default_staff_profile );
 }
 
 /**
@@ -123,8 +108,9 @@ function nsm_sd_set_staff_name( $id, $post ) {
 	}
 	$nsm_sd_title = $nsm_sd_first_name . ' ' . $nsm_sd_last_name;
 	$nsm_sd_slug  = $nsm_sd_first_name . '-' . $nsm_sd_last_name;
-	// Remove the action so we don't get caught in a loop.
+
 	remove_action( 'save_post_staff', 'nsm_sd_set_staff_name' );
+
 	wp_update_post(
 		array(
 			'ID'         => $id,

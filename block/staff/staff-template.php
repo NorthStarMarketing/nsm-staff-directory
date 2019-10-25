@@ -6,7 +6,8 @@
  * @param   string       $content    The block inner HTML (empty).
  * @param   bool         $is_preview True during AJAX preview.
  * @param   int|string   $post_id    The post ID this block is saved to.
- * @package nsm_sd
+ *
+ * @package Nsm_Staff_Directory
  */
 
 $nsm_sd_id        = 'staff-' . $block['id'];
@@ -30,6 +31,9 @@ if ( ! empty( $block['align'] ) ) {
 			<?php echo get_the_post_thumbnail( $nsm_sd_staff_member, 'staff-profile' ); ?>
 			<div class="container">
 				<h4><?php echo get_field( 'nsm_sd_first_name', $nsm_sd_staff_member ); ?> <?php echo get_field( 'nsm_sd_last_name', $nsm_sd_staff_member ); ?></h4>
+				<div class="title">
+					<?php echo get_field( 'nsm_sd_title', $nsm_sd_staff_member ); ?>
+				</div>
 				<div class="education">
 					<?php echo get_field( 'nsm_sd_education', $nsm_sd_staff_member ); ?>
 				</div>
