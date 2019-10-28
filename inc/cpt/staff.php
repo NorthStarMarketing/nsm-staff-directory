@@ -8,6 +8,7 @@
 // Actions and Filters.
 add_action( 'init', 'nsm_sd_staff', 0 );
 add_action( 'save_post_staff', 'nsm_sd_set_staff_name', 10, 2 );
+add_action( 'admin_bar_menu', 'nsm_sd_remove_from_admin_bar', 999 );
 
 add_filter( 'use_block_editor_for_post_type', 'nsm_sd_disable_gutenberg', 10, 2 );
 
@@ -83,7 +84,7 @@ function nsm_sd_staff() {
 		'can_export'          => true,
 		'has_archive'         => false,
 		'exclude_from_search' => false,
-		'publicly_queryable'  => true,
+		'publicly_queryable'  => false,
 		'rewrite'             => $rewrite,
 		'capability_type'     => 'page',
 	);
@@ -97,7 +98,7 @@ function nsm_sd_staff() {
  * @param int    $id   The post ID.
  * @param object $post The post object.
  */
-function nsm_sd_set_staff_name( $id, $post ) {
+ function nsm_sd_set_staff_name( $id, $post ) {
 	if ( ! isset( $_POST['acf'] ) ) {
 		return;
 	}
@@ -122,3 +123,13 @@ function nsm_sd_set_staff_name( $id, $post ) {
 	add_action( 'save_post_staff', 'nsm_sd_set_staff_name', 10, 2 );
 }
 
+
+function nsm_sd_remove_from_admin_bar( $wp_admin_bar ) {
+    /*
+     * Items placed outside the if statement will remove it from both the frontend
+     * and backend of the site
+	*/
+	if ( 'staff' == get_post_type() ) {
+		$wp_admin_bar->remove_node( 'view' );
+	}
+}
