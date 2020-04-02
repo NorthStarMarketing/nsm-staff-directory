@@ -41,8 +41,8 @@ if ( ! empty( $block['align'] ) ) {
 					<?php
 					$nsm_sd_email = get_field( 'nsm_sd_email', $nsm_sd_staff_member );
 					echo sprintf(
-						'<a href="%s" target="_blank">%s</a>',
-						esc_url( $nsm_sd_email ),
+						'<a href="mailto:%s" target="_blank">%s</a>',
+						esc_attr( $nsm_sd_email ),
 						$nsm_sd_email
 					);
 					?>
