@@ -7,7 +7,7 @@
  * Author URI:      https://www.northstarmarketing.com
  * Text Domain:     nsm-staff-directory
  * Domain Path:     /languages
- * Version:         0.2
+ * Version:         0.3
  *
  * @package         Nsm_Staff_Directory
  */
